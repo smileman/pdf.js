@@ -1375,11 +1375,8 @@ var PartialEvaluator = (function PartialEvaluatorClosure() {
           textChunk.lastAdvanceHeight = height;
           textChunk.height += Math.abs(height * textChunk.textAdvanceScale);
         }
-<<<<<<< HEAD
 
-=======
         addSpaceIfNecessary(textChunk, font);
->>>>>>> e9ad0b46f06c8643d6370bf0b022671c2e1c2e0f
         return textChunk;
       }
       function getChunkPosition(chunk, font) {
@@ -1628,7 +1625,6 @@ var PartialEvaluator = (function PartialEvaluatorClosure() {
                       textContentItem.height += offset;
                     }
                   } else {
-<<<<<<< HEAD
                     advance = -advance;
                     offset = advance * (
                       textState.textHScale * textState.textMatrix[0] +
@@ -1639,23 +1635,6 @@ var PartialEvaluator = (function PartialEvaluatorClosure() {
                     if (!breakTextRun) {
                       // Value needs to be subtracted from width to paint left.
                       textContentItem.width += offset;
-=======
-                    offset = -val * textState.fontSize *
-                      textState.textMatrix[3];
-                    textState.translateTextMatrix(0, offset);
-                    textChunk.height += offset;
-                  }
-                  // Automatically insert spaces if the shift is big enough.
-                  if (items[j] < 0 && textState.font.spaceWidth > 0) {
-                    var fakeSpaces = -items[j] / textState.font.spaceWidth;
-                    if (fakeSpaces > MULTI_SPACE_FACTOR) {
-                      fakeSpaces = Math.round(fakeSpaces);
-                      while (fakeSpaces--) {
-                        textChunk.str.push(' ');
-                      }
-                    } else if (fakeSpaces > SPACE_FACTOR) {
-                      textChunk.str.push(' ');
->>>>>>> e9ad0b46f06c8643d6370bf0b022671c2e1c2e0f
                     }
                   }
                   if (breakTextRun) {
