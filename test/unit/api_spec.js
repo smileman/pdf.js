@@ -804,6 +804,10 @@ describe('api', function() {
         expect(data[0].items.length).toEqual(7);
         expect(!!data[0].styles).toEqual(true);
 
+        // Make sure the text is ordered properly.
+        expect(data[0].items[1].str).toEqual('Table Of Content ');
+        expect(data[0].items[6].str.replace(/^\s+/,'')).toEqual('page 1 / 3');
+
         // A simple check that ensures the two `textContent` object match.
         expect(JSON.stringify(data[0])).toEqual(JSON.stringify(data[1]));
         done();
